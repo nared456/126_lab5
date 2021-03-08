@@ -1,42 +1,39 @@
 #include <stdio.h>
-int divide(int a, int b)
+int Ugly(int x)
 {
-    while (a % b == 0)
-    {
-        a = a / b;
-        return a;
-    }
-}
-int Ugly(int n)
-{
-    n = divide(n, 2);
-    n = divide(n, 3);
-    n = divide(n, 5);
-    if (n == 1)
+    if (x == 1)
     {
         return 1;
     }
-    else
-        return 0;
-}
-int ChUgly(int x)
-{
-    int i = 1;
-    int count = 1;
-    while (x > count)
+    if (x % 2 == 0)
     {
-        i++;
-        if (Ugly(i))
-        {
-            count++;
-        }
+        return Ugly(x / 2);
     }
-    return i;
+    if (x % 3 == 0)
+    {
+        return Ugly(x / 3);
+    }
+    if (x % 5 == 0)
+    {
+        return Ugly(x / 5);
+    }
+    return 0;
 }
 int main()
 {
-    int num, i,ans;
+    int num, i, j, k=0;
     scanf("%d", &num);
-    ans = ChUgly(num);
-    printf("%d",ans);
+    int ans[num * num];
+    for (i = 1; i < num * num + 3; i++, k++)
+    {
+        j = Ugly(i);
+        if (j == 1)
+        {
+            ans[k] = i;
+        }
+        else
+            k--;
+    }
+    printf("%d",ans[num-1]);
+    return 0;
 }
