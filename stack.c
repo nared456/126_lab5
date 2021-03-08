@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 int main()
 {
     int n, i, c = 0;
@@ -45,7 +44,7 @@ int main()
             }
         }
     }
-    for(i=0;i<c;i++);
+    for(i=0;i<c;i++)
     {
         printf("%d ",num[i]);
     }
